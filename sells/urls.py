@@ -12,4 +12,5 @@ urlpatterns = [
     path('getTicket', TicketDetailView.as_view()),
     path('getListPurchases', PurchaseTicketListView.as_view()),
     path('getPurchase', PurchaseTicketDetailView.as_view()),
+    path('createPurchase', PurchaseTicketCreateView.as_view()),
 ]

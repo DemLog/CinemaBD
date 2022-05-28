@@ -6,7 +6,7 @@ from places.models import Place
 class Client(models.Model):
     phone = models.CharField('Номер телефона', max_length=10)
     name_client = models.CharField('Имя клиента', max_length=200)
-    is_regular = models.BooleanField('Постояный ли клиент')
+    is_regular = models.BooleanField('Постояный ли клиент', default=False)
     num_buys = models.IntegerField('Количество покупок', default=0)
 
     def __str__(self):
@@ -40,3 +40,5 @@ class PurchaseTicket(models.Model):
         return "Клиент: {0} | Кассир: {1} | Номер билета: {2} | {3}".format(self.phone_client.name_client,
                                                                             self.name_cashier, self.num_ticket,
                                                                             self.place)
+
+

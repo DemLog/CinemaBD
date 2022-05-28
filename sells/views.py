@@ -67,3 +67,7 @@ class PurchaseTicketDetailView(generics.RetrieveAPIView):
         filter = self.request.query_params.get('id', None)
         obj = get_object_or_404(queryset, id=filter)
         return obj
+
+
+class PurchaseTicketCreateView(generics.CreateAPIView):
+    serializer_class = PurchaseTicketDetailSerializer
