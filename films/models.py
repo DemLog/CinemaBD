@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, transaction
 
 
 class Film(models.Model):
@@ -8,6 +8,12 @@ class Film(models.Model):
 
     def __str__(self):
         return self.name_film
+
+    def save(self, *args, **kwargs):
+        super(Film, self).save(*args, **kwargs)
+        for num in range(1, self.session_num + 1):
+            session = Session.objects.create(film=self, num_session=num)
+            SessionsOfFilm.objects.create(film=self, num_session=session)
 
 
 class Session(models.Model):
