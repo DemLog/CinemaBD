@@ -21,7 +21,7 @@ class Session(models.Model):
     num_session = models.IntegerField('Номер сессии')
 
     def __str__(self):
-        return "Фильм: {0} | Сессия: {1}".format(self.film.name_film, self.num_session)
+        return "Фильм: {0} | Сеанс: {1}".format(self.film.name_film, self.num_session)
 
 
 class SessionsOfFilm(models.Model): # Не понятно зачем в рамках джанго
