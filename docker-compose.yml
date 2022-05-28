@@ -1,7 +1,11 @@
 version: '3.9'
 services:
   web:
-    build: .
-    command: python manage.py runserver localhost:8002
+    build: ./CinemaBD
+    command: python manage.py runserver 0.0.0.0:8002
+    volumes:
+      - ./CinemaBD/:/usr/src/CinemaBD/
     ports:
       - 8002:8002
+    env_file:
+      - ./.env.dev
