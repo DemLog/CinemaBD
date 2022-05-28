@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  web:
+    build: .
+    command: python manage.py runserver localhost:8002
+    ports:
+      - 8002:8002
