@@ -21,9 +21,9 @@ class Session(models.Model):
     num_session = models.IntegerField('Номер сессии')
 
     def __str__(self):
-        return str(self.num_session)
+        return "Фильм: {0} | Сессия: {1}".format(self.film.name_film, self.num_session)
 
 
-class SessionsOfFilm(models.Model):
+class SessionsOfFilm(models.Model): # Не понятно зачем в рамках джанго
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
     num_session = models.ForeignKey(Session, on_delete=models.CASCADE)

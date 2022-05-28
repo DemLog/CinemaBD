@@ -9,7 +9,7 @@ class Hell(models.Model):
     # num_occup_places = models.IntegerField('Количество Занятых Мест')
 
     def __str__(self):
-        return str(self.num_hell)
+        return "Зал {0}".format(self.num_hell)
 
     def save(self, *args, **kwargs):
         super(Hell, self).save(*args, **kwargs)
@@ -39,4 +39,4 @@ class Place(models.Model):
     num_hell = models.ForeignKey(Hell, related_name='places', on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.num_place)
+        return "Зал: {0} | Место: {1}".format(self.num_hell.num_hell, self.num_place)
